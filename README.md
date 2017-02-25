@@ -13,4 +13,4 @@ ud170文件夹下的内容对应[数据分析入门：使用 NumPy 和 Pandas �
 
 ## ud120
 ud120文件夹下的内容对应[机器学习入门（中/英）：有趣及有利的特征识别](https://cn.udacity.com/course/intro-to-machine-learning--ud120)课程
-* 首先需运行 [**download_data.py**](https://github.com/zuoshou0929/python3_learn/blob/master/ud120/src/download_data.py)，下载本代码所需数据集
+* 首先需运行 [**download_data.py**](ud120/src/download_data.py)，下载本代码所需数据集
