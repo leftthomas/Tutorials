@@ -1,6 +1,7 @@
-import urllib.request
-import tarfile
 import os
+import tarfile
+import urllib.request
+
 print("downloading the Enron dataset (this may take a while)")
 print("to check on progress, you can cd up one level, then execute <ls -lthr>")
 print("Enron dataset should be last item on the list, along with its current size")
