@@ -8,7 +8,7 @@ print("Enron dataset should be last item on the list, along with its current siz
 print("download will complete at about 423 MB")
 
 url = "https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tgz"
-urllib.request.urlretrieve(url, filename="../../../enron_mail_20150507.tgz")
+urllib.request.urlretrieve(url, filename="../../../../enron_mail_20150507.tgz")
 print("download complete!")
 
 print("unzipping Enron dataset (this may take a while)")

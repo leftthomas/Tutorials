@@ -17,7 +17,7 @@ import sys
 sys.path.append("../tools/")
 from feature_format import featureFormat, targetFeatureSplit
 
-data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
+data_dict = pickle.load(open("../final_project/enron_dataset.pkl", "r"))
 
 ### add more features to features_list!
 features_list = ["poi", "salary"]
