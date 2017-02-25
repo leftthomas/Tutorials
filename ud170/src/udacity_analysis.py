@@ -29,9 +29,9 @@ def parse_maybe_int(i):
         return int(i)
 
 
-enrollments_filename = "/Users/left/workspace/python/learn/ud170/resources/udacity_students/enrollments.csv"
-engagement_filename = "/Users/left/workspace/python/learn/ud170/resources/udacity_students/daily_engagement.csv"
-submissions_filename = "/Users/left/workspace/python/learn/ud170/resources/udacity_students/project_submissions.csv"
+enrollments_filename = "../resources/udacity_students/enrollments.csv"
+engagement_filename = "../resources/udacity_students/daily_engagement.csv"
+submissions_filename = "../resources/udacity_students/project_submissions.csv"
 
 enrollments = list(read_csv(enrollments_filename))
 daily_engagement = list(read_csv(engagement_filename))

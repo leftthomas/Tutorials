@@ -107,7 +107,7 @@ def max_employment(employment):
 # print(max_employment(employment))
 
 
-path = '/Users/left/workspace/python/learn/ud170/resources/gapminder/'
+path = '../resources/gapminder/'
 employment = pd.read_csv(path + 'employment_above_15.csv', index_col='Country')
 female_completion = pd.read_csv(path + 'female_completion_rate.csv', index_col='Country')
 male_completion = pd.read_csv(path + 'male_completion_rate.csv', index_col='Country')

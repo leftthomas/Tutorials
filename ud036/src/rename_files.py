@@ -2,12 +2,12 @@ import os
 
 
 def rename_files():
-    file_list = os.listdir("/Users/left/workspace/python/learn/ud036/resources/prank/")
+    file_list = os.listdir("../resources/prank/")
     print(file_list)
     saved_path = os.getcwd()
     # print("The current working directory is "+saved_path)
 
-    os.chdir("/Users/left/workspace/python/learn/ud036/resources/prank")
+    os.chdir("../resources/prank")
     for file_name in file_list:
         print("Old name--" + file_name)
         # str.maketrans()函数是个静态函数，注意参数问题，第三个参数是需要被替换成空的字符，前两个参数必须是空字符

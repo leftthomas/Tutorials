@@ -36,7 +36,7 @@ def min_and_max_riders_per_day(ridership):
 # print(min_and_max_riders_per_day(ridership))
 
 
-filename = '/Users/left/workspace/python/learn/ud170/resources/nyc_subway/nyc-subway-weather.csv'
+filename = '../resources/nyc_subway/nyc-subway-weather.csv'
 subway_df = pd.read_csv(filename)
 
 
