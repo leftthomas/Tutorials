@@ -46,3 +46,21 @@ print(enron_data['COLWELL WESLEY']['from_this_person_to_poi'])
 
 # exercised stock options of Jeffrey K Skilling
 print(enron_data['SKILLING JEFFREY K']['exercised_stock_options'])
+
+# total payments of Jeffrey K Skilling
+print(enron_data['SKILLING JEFFREY K']['total_payments'])
+# total payments of Kenneth Lay
+print(enron_data['LAY KENNETH L']['total_payments'])
+# total payments of Andrew Fastow
+print(enron_data['FASTOW ANDREW S']['total_payments'])
+
+# number of folks(have salary,have email address from enron_dataset)
+num_salary = 0
+num_email = 0
+for value in enron_data.values():
+    if value['salary'] != 'NaN':
+        num_salary += 1
+    if value['email_address'] != 'NaN':
+        num_email += 1
+print(num_salary)
+print(num_email)

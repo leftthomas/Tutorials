@@ -1,6 +1,4 @@
-#!/usr/bin/python
-
-""" 
+"""
     A general tool for converting data from the
     dictionary format to an (n x k) python list that's 
     ready for training an sklearn algorithm
@@ -82,21 +80,21 @@ def featureFormat(dictionary, features, remove_NaN=True, remove_all_zeroes=True,
             test_list = tmp_list[1:]
         else:
             test_list = tmp_list
-        ### if all features are zero and you want to remove
-        ### data points that are all zero, do that here
+        # if all features are zero and you want to remove
+        # data points that are all zero, do that here
         if remove_all_zeroes:
             append = False
             for item in test_list:
                 if item != 0 and item != "NaN":
                     append = True
                     break
-        ### if any features for a given data point are zero
-        ### and you want to remove data points with any zeroes,
-        ### handle that here
+        # if any features for a given data point are zero
+        # and you want to remove data points with any zeroes,
+        # handle that here
         if remove_any_zeroes:
             if 0 in test_list or "NaN" in test_list:
                 append = False
-        ### Append the data point if flagged for addition.
+        # Append the data point if flagged for addition.
         if append:
             return_list.append(np.array(tmp_list))
 
