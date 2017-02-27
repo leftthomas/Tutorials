@@ -15,44 +15,49 @@ import pickle
 
 enron_data = pickle.load(open("../../resources/enron_dataset.pkl", "rb"))
 # number of people
-print(len(enron_data))
+print('number of people:', len(enron_data))
 
 # number of features
-print(len(enron_data['SKILLING JEFFREY K']))
+print('number of features:', len(enron_data['SKILLING JEFFREY K']))
 
 # number of poi(from enron_dataset)
 num = 0
 for value in enron_data.values():
     if value['poi'] == 1:
         num += 1
-print(num)
+print('number of poi(from enron_dataset):', num)
 
 # number of poi(from poi_names)
 num = 0
+# number of poi which haven't salary(from poi_names)
+num_nan = 0
 f = open("../../resources/poi_names.txt")
 line = f.readline()
 while line:
     # 调用文件的readline()方法
     num += line.count('(')
+    num_nan += line.count('(n)')
     line = f.readline()
 f.close()
-print(num)
+print('number of poi(from poi_names):', num)
+print('number of poi which haven\'t salary(from poi_names):', num_nan)
+print('the percent that haven\'t salary of all poi:', num_nan / num)
 
 # total stock value of James Prentice
-print(enron_data['PRENTICE JAMES']['total_stock_value'])
+print('total stock value of James Prentice:', enron_data['PRENTICE JAMES']['total_stock_value'])
 
 # number of emails from Wesley Colwell to poi
-print(enron_data['COLWELL WESLEY']['from_this_person_to_poi'])
+print('number of emails from Wesley Colwell to poi:', enron_data['COLWELL WESLEY']['from_this_person_to_poi'])
 
 # exercised stock options of Jeffrey K Skilling
-print(enron_data['SKILLING JEFFREY K']['exercised_stock_options'])
+print('exercised stock options of Jeffrey K Skilling:', enron_data['SKILLING JEFFREY K']['exercised_stock_options'])
 
 # total payments of Jeffrey K Skilling
-print(enron_data['SKILLING JEFFREY K']['total_payments'])
+print('total payments of Jeffrey K Skilling:', enron_data['SKILLING JEFFREY K']['total_payments'])
 # total payments of Kenneth Lay
-print(enron_data['LAY KENNETH L']['total_payments'])
+print('total payments of Kenneth Lay:', enron_data['LAY KENNETH L']['total_payments'])
 # total payments of Andrew Fastow
-print(enron_data['FASTOW ANDREW S']['total_payments'])
+print('total payments of Andrew Fastow:', enron_data['FASTOW ANDREW S']['total_payments'])
 
 # number of folks(have salary,have email address from enron_dataset)
 num_salary = 0
@@ -62,5 +67,6 @@ for value in enron_data.values():
         num_salary += 1
     if value['email_address'] != 'NaN':
         num_email += 1
-print(num_salary)
-print(num_email)
+print('number of folks(have salary from enron_dataset):', num_salary)
+print('number of folks(have email address from enron_dataset):', num_email)
+print('the percent that haven\'t salary of all people:', 1 - num_salary / len(enron_data.values()))
