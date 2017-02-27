@@ -64,3 +64,4 @@ for value in enron_data.values():
         num_email += 1
 print(num_salary)
 print(num_email)
+# 测试
