@@ -14,7 +14,7 @@ import pickle
 import sys
 
 sys.path.append("../tools/")
-from feature_format import featureFormat, targetFeatureSplit
+from enron.feature_format import featureFormat, targetFeatureSplit
 
 data_dict = pickle.load(open("../final_project/enron_dataset.pkl", "r"))
 

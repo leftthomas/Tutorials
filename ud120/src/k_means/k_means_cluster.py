@@ -10,7 +10,7 @@ import sys
 import matplotlib.pyplot as plt
 
 sys.path.append("../tools/")
-from feature_format import featureFormat, targetFeatureSplit
+from enron.feature_format import featureFormat, targetFeatureSplit
 
 
 def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature 1", f2_name="feature 2"):
