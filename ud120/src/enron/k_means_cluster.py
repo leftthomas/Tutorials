@@ -6,6 +6,7 @@ import pickle
 
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+from sklearn.preprocessing import minmax_scale
 
 from enron.feature_format import featureFormat, targetFeatureSplit
 
@@ -63,6 +64,11 @@ feature_3 = 'total_payments'
 poi = "poi"
 features_list = [poi, feature_1, feature_2, feature_3]
 data = featureFormat(data_dict, features_list)
+data[:, 1] = minmax_scale(data[:, 1])
+data[:, 2] = minmax_scale(data[:, 2])
+print('salary_scale:', 200000 / salary_max)
+print('exercised_stock_options_scale:', 100 / stock_min)
+
 poi, finance_features = targetFeatureSplit(data)
 
 # in the "clustering with 3 features" part of the mini-project,
