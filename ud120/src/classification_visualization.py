@@ -1,3 +1,6 @@
+import base64
+import json
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pylab as pl
@@ -35,10 +38,6 @@ def prettyPicture(clf, X_test, y_test):
     plt.ylabel("grade")
 
     plt.savefig("test.png")
-
-
-import base64
-import json
 
 
 def output_image(name, format, bytes):

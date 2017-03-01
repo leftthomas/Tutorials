@@ -13,7 +13,7 @@
 
 import pickle
 
-enron_data = pickle.load(open("../../resources/enron_dataset.pkl", "rb"))
+enron_data = pickle.load(open("../../resources/enron/enron_dataset.pkl", "rb"))
 # number of people
 print('number of people:', len(enron_data))
 
@@ -31,7 +31,7 @@ print('number of poi(from enron_dataset):', num)
 num = 0
 # number of poi which haven't salary(from poi_names)
 num_nan = 0
-f = open("../../resources/poi_names.txt")
+f = open("../../resources/enron/poi_names.txt")
 line = f.readline()
 while line:
     # 调用文件的readline()方法

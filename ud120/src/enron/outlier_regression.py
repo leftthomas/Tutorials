@@ -8,8 +8,8 @@ from sklearn.model_selection import train_test_split
 from enron.outlier_cleaner import outlierCleaner
 
 # load up some practice data with outliers in it
-ages = pickle.load(open("../../resources/outliers_ages.pkl", "rb"))
-net_worths = pickle.load(open("../../resources/outliers_net_worths.pkl", "rb"))
+ages = pickle.load(open("../../resources/enron/outliers_ages.pkl", "rb"))
+net_worths = pickle.load(open("../../resources/enron/outliers_net_worths.pkl", "rb"))
 
 # ages and net_worths need to be reshaped into 2D numpy arrays
 # second argument of reshape command is a tuple of integers: (n_rows, n_columns)

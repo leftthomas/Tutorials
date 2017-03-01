@@ -32,7 +32,7 @@ def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature
 
 
 # load in the dict of dicts containing all the data on each person in the dataset
-data_dict = pickle.load(open("../../resources/enron_dataset.pkl", "rb"))
+data_dict = pickle.load(open("../../resources/enron/enron_dataset.pkl", "rb"))
 # there's an outlier--remove it!
 data_dict.pop("TOTAL", 0)
 

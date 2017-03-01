@@ -16,13 +16,14 @@ from sklearn.model_selection import train_test_split
 
 from enron.feature_format import featureFormat, targetFeatureSplit
 
-dictionary = pickle.load(open("../../resources/dataset_modified.pkl", "rb"))
+dictionary = pickle.load(open("../../resources/enron/dataset_modified.pkl", "rb"))
 
 # list the features you want to look at--first item in the
 # list will be the "target" feature
 features_list = ["bonus", "salary"]
 # features_list = ["bonus", "long_term_incentive"]
-data = featureFormat(dictionary, features_list, remove_any_zeroes=True,sort_keys = '../../resources/python2_lesson06_keys.pkl')
+data = featureFormat(dictionary, features_list, remove_any_zeroes=True,
+                     sort_keys='../../resources/enron/python2_lesson06_keys.pkl')
 target, features = targetFeatureSplit(data)
 
 feature_train, feature_test, target_train, target_test = train_test_split(features, target, test_size=0.5,
