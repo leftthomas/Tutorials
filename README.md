@@ -17,3 +17,4 @@ ud120文件夹下的内容对应[机器学习入门（中/英）：有趣及有�
 
 ## ud730
 ud730文件夹下的内容对应[深度学习（中/英）：将机器学习技能更上一个台阶](https://cn.udacity.com/course/deep-learning--ud730)课程
+* 首先需安装[TensorFlow](https://www.tensorflow.org/install)
