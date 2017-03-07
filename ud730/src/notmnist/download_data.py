@@ -14,10 +14,7 @@ and the data is a lot less 'clean' than MNIST.
 # before proceeding further.
 import os
 import sys
-import tarfile
 from urllib.request import urlretrieve
-
-import numpy as np
 
 # First, we'll download the dataset to our local machine.
 # The data consists of characters rendered in a variety of fonts on a 28x28 image.
@@ -26,7 +23,7 @@ import numpy as np
 # Given these sizes, it should be possible to train models quickly on any machine.
 url = 'http://commondatastorage.googleapis.com/books1000/'
 last_percent_reported = None
-data_root = '../../../'  # Change me to store data elsewhere
+data_root = '../../../../'  # Change me to store data elsewhere
 
 
 def download_progress_hook(count, blockSize, totalSize):
@@ -65,34 +62,3 @@ def maybe_download(filename, expected_bytes, force=False):
 
 train_filename = maybe_download('notMNIST_large.tar.gz', 247336696)
 test_filename = maybe_download('notMNIST_small.tar.gz', 8458043)
-
-# Extract the dataset from the compressed .tar.gz file.
-# This should give you a set of directories, labelled A through J.
-num_classes = 10
-np.random.seed(133)
-
-
-def maybe_extract(filename, force=False):
-    root = os.path.splitext(os.path.splitext(filename)[0])[0]  # remove .tar.gz
-    if os.path.isdir(root) and not force:
-        # You may override by setting force=True.
-        print('%s already present - Skipping extraction of %s.' % (root, filename))
-    else:
-        print('Extracting data for %s. This may take a while. Please wait.' % root)
-        tar = tarfile.open(filename)
-        sys.stdout.flush()
-        tar.extractall(data_root)
-        tar.close()
-    data_folders = [
-        os.path.join(root, d) for d in sorted(os.listdir(root))
-        if os.path.isdir(os.path.join(root, d))]
-    if len(data_folders) != num_classes:
-        raise Exception(
-            'Expected %d folders, one per class. Found %d instead.' % (
-                num_classes, len(data_folders)))
-    print(data_folders)
-    return data_folders
-
-
-train_folders = maybe_extract(train_filename)
-test_folders = maybe_extract(test_filename)
