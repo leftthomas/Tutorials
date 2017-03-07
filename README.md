@@ -20,6 +20,6 @@ ud730文件夹下的内容对应[深度学习（中/英）：将机器学习技�
 * 首先需安装[TensorFlow](https://www.tensorflow.org/install)
 * 然后需运行[**download_data.py**](ud730/src/notmnist/download_data.py)，下载notMNIST数据集
 
-    > 若下载数据集过程中遇到问题，可点击以下链接直接下载数据集到本地，并解压至相应路径
-    [notMNIST_small.tar.gz](http://commondatastorage.googleapis.com/books1000/notMNIST_small.tar.gz)
+    > 若下载数据集过程中遇到问题，可点击以下链接直接下载数据集到本地，并解压至相应路径  
+    [notMNIST_small.tar.gz](http://commondatastorage.googleapis.com/books1000/notMNIST_small.tar.gz)  
     [notMNIST_large.tar.gz](http://commondatastorage.googleapis.com/books1000/notMNIST_large.tar.gz)
