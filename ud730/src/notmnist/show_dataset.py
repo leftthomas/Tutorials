@@ -126,6 +126,10 @@ print('Compressed pickle size:', statinfo.st_size)
 # What about near duplicates between datasets? (images that are almost identical)
 # Create a sanitized validation and test set, and compare your accuracy on those
 # in subsequent assignments.
+print('the number of overlap between training and validation:',
+      len([val for val in train_dataset if val in valid_dataset]))
+print('the number of overlap between training and test:', len([val for val in train_dataset if val in test_dataset]))
+print('the number of overlap between validation and test:', len([val for val in valid_dataset if val in test_dataset]))
 
 
 # Problem 6
@@ -136,5 +140,5 @@ print('Compressed pickle size:', statinfo.st_size)
 # Hint: you can use the LogisticRegression model from sklearn.linear_model.
 # Optional question: train an off-the-shelf model on all the data!
 lrc = LogisticRegression()
-lrc.fit(train_dataset.reshape(len(train_dataset), image_size * image_size)[0:50, ], train_labels[0:50])
-print(lrc.score(test_dataset.reshape(len(test_dataset), image_size * image_size)[0:50, ], test_labels[0:50]))
+lrc.fit(train_dataset.reshape(len(train_dataset), image_size * image_size)[0:5000, ], train_labels[0:5000])
+print(lrc.score(test_dataset.reshape(len(test_dataset), image_size * image_size), test_labels))
