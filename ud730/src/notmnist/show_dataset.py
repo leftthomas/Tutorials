@@ -2,6 +2,7 @@ import os
 import pickle
 
 import numpy as np
+from sklearn.linear_model import LogisticRegression
 
 from notmnist.extract_pickle_data import maybe_extract
 from notmnist.extract_pickle_data import maybe_pickle
@@ -113,3 +114,27 @@ except Exception as e:
 
 statinfo = os.stat(pickle_file)
 print('Compressed pickle size:', statinfo.st_size)
+
+# Problem 5
+# By construction, this dataset might contain a lot of overlapping samples,
+# including training data that's also contained in the validation and test set!
+# Overlap between training and test can skew the results if you expect to use your
+# model in an environment where there is never an overlap, but are actually ok if
+# you expect to see training samples recur when you use it. Measure how much overlap
+# there is between training, validation and test samples.
+# Optional questions:
+# What about near duplicates between datasets? (images that are almost identical)
+# Create a sanitized validation and test set, and compare your accuracy on those
+# in subsequent assignments.
+
+
+# Problem 6
+# Let's get an idea of what an off-the-shelf classifier can give you on this data.
+# It's always good to check that there is something to learn, and that it's a problem
+# that is not so trivial that a canned solution solves it.
+# Train a simple model on this data using 50, 100, 1000 and 5000 training samples.
+# Hint: you can use the LogisticRegression model from sklearn.linear_model.
+# Optional question: train an off-the-shelf model on all the data!
+lrc = LogisticRegression()
+lrc.fit(train_dataset.reshape(len(train_dataset), image_size * image_size)[0:50, ], train_labels[0:50])
+print(lrc.score(test_dataset.reshape(len(test_dataset), image_size * image_size)[0:50, ], test_labels[0:50]))
