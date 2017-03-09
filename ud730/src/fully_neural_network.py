@@ -204,8 +204,10 @@ with graph.as_default():
 #
 #     # Predictions for the training, validation, and test data.
 #     train_prediction = tf.nn.softmax(logits)
-#     valid_prediction = tf.nn.softmax(tf.matmul(tf.nn.relu(tf.matmul(tf_valid_dataset, weights) + biases), weights2) + biases2)
-#     test_prediction = tf.nn.softmax(tf.matmul(tf.nn.relu(tf.matmul(tf_test_dataset, weights) + biases), weights2) + biases2)
+#     valid_prediction = tf.nn.softmax(tf.matmul(tf.nn.relu(
+#         tf.matmul(tf_valid_dataset, weights) + biases), weights2) + biases2)
+#     test_prediction = tf.nn.softmax(tf.matmul(tf.nn.relu(
+#         tf.matmul(tf_test_dataset, weights) + biases), weights2) + biases2)
 
 
 # Let's run it:
