@@ -175,7 +175,6 @@ with graph.as_default():
     w = tf.Variable(tf.truncated_normal([num_nodes, vocabulary_size], -0.1, 0.1))
     b = tf.Variable(tf.zeros([vocabulary_size]))
 
-
     # Definition of the cell computation.
     def lstm_cell(i, o, state):
         """Create a LSTM cell. See e.g.: http://arxiv.org/pdf/1402.1128v1.pdf
