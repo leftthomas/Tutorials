@@ -17,7 +17,7 @@ ud120文件夹下的内容对应[机器学习入门（中/英）：有趣及有�
 
 ## ud730
 ud730文件夹下的内容对应[深度学习（中/英）：将机器学习技能更上一个台阶](https://cn.udacity.com/course/deep-learning--ud730)课程
-* 首先需安装[TensorFlow](https://www.tensorflow.org/install)
+* 首先需安装[TensorFlow](https://www.tensorflow.org/install)，建议通过Anaconda的方式来安装
 * 然后需运行[**download_data.py**](ud730/src/notmnist/download_data.py)，下载notMNIST数据集
     
     > 若下载数据集过程中遇到问题，可点击以下链接直接下载数据集到本地  
