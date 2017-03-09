@@ -144,6 +144,7 @@ with graph.as_default(), tf.device('/cpu:0'):
     normalized_embeddings = embeddings / norm
     valid_embeddings = tf.nn.embedding_lookup(
         normalized_embeddings, valid_dataset)
+
     similarity = tf.matmul(valid_embeddings, tf.transpose(normalized_embeddings))
 
 num_steps = 100001
@@ -198,7 +199,9 @@ def plot(embeddings, labels):
 words = [reverse_dictionary[i] for i in range(1, num_points + 1)]
 plot(two_d_embeddings, words)
 
+
 # Problem
 # An alternative to skip-gram is another Word2Vec model called CBOW (Continuous Bag of Words).
 # In the CBOW model, instead of predicting a context word from a word vector, you predict a word from the sum
 # of all the word vectors in its context. Implement and evaluate a CBOW model trained on the text8 dataset.
+# 这个数据集存在问题，训练完会有NaN，不好做
