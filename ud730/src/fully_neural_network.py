@@ -12,7 +12,7 @@ import pickle
 import numpy as np
 import tensorflow as tf
 
-# First reload the data we generated in notmnist
+# First reload the data we generated in notmnist.
 pickle_file = '../../../notMNIST.pickle'
 
 with open(pickle_file, 'rb') as f:
@@ -235,3 +235,55 @@ with tf.Session(graph=graph) as session:
             print("Validation accuracy: %.1f%%" % accuracy(
                 valid_prediction.eval(), valid_labels))
     print("Test accuracy: %.1f%%" % accuracy(test_prediction.eval(), test_labels))
+
+'''
+Assignment 3
+
+Previously in fully_neural_network.py, you trained a logistic regression and a neural network model.
+
+The goal of this assignment is to explore regularization techniques.
+'''
+# Problem 1
+# Introduce and tune L2 regularization for both logistic and neural network models.
+# Remember that L2 amounts to adding a penalty on the norm of the weights to the loss.
+# In TensorFlow, you can compute the L2 loss for a tensor t using nn.l2_loss(t).
+# The right amount of regularization should improve your validation / test accuracy.
+# 就在计算图上加nn.l2_loss(t)就行了
+
+# Problem 2
+# Let's demonstrate an extreme case of overfitting.
+# Restrict your training data to just a few batches. What happens?
+# 就改下batch_size就行了
+
+# Problem 3
+# Introduce Dropout on the hidden layer of the neural network.
+# Remember: Dropout should only be introduced during training, not evaluation,
+# otherwise your evaluation results would be stochastic as well.
+# TensorFlow provides nn.dropout() for that, but you have to make sure it's only
+# inserted during training.
+# What happens to our extreme overfitting case?
+# 就在计算图上加nn.dropout()就行了
+
+# Problem 4
+# Try to get the best performance you can using a multi-layer model!
+# The best reported test accuracy using a deep network is 97.1%.
+# One avenue you can explore is to add multiple layers.
+# Another one is to use learning rate decay:
+# global_step = tf.Variable(0)  # count the number of steps taken.
+# learning_rate = tf.train.exponential_decay(0.5, global_step, ...)
+# optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss, global_step=global_step)
+# 类似下面这样多加几层就行了
+#     # Variables.
+#     weights = tf.Variable(
+#         tf.truncated_normal([image_size * image_size, 1024]))
+#     biases = tf.Variable(tf.zeros([1024]))
+#
+#     weights2 = tf.Variable(
+#         tf.truncated_normal([1024, num_labels]))
+#     biases2 = tf.Variable(tf.zeros([num_labels]))
+#
+#     # Training computation.
+#     hidden = tf.nn.relu(tf.matmul(tf_train_dataset, weights) + biases)
+#     logits = tf.matmul(hidden, weights2) + biases2
+#     loss = tf.reduce_mean(
+#         tf.nn.softmax_cross_entropy_with_logits(labels=tf_train_labels, logits=logits))
