@@ -43,6 +43,7 @@
 #  [1,0] - down
 #  [-1,0] - up
 
+
 def move(p, U, p_move):
     q = []
     for i in range(len(p)):
