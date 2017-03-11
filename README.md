@@ -24,3 +24,6 @@ ud730文件夹下的内容对应[深度学习（中/英）：将机器学习技�
     [notMNIST_small.tar.gz](http://commondatastorage.googleapis.com/books1000/notMNIST_small.tar.gz)  
     [notMNIST_large.tar.gz](http://commondatastorage.googleapis.com/books1000/notMNIST_large.tar.gz)
 * 接着需运行[**extract_pickle_data.py**](ud730/src/notmnist/extract_pickle_data.py)，解压notMNIST数据集，生成pickle文件
+
+## cs373
+cs373文件夹下的内容对应[机器人人工智能：编制机器人汽车](https://cn.udacity.com/course/artificial-intelligence-for-robotics--cs373)课程
