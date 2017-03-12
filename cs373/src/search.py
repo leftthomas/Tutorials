@@ -36,8 +36,9 @@ def search(grid, init, goal, cost):
     open_set = []
     close_set = []
     g_values = []
-    expand = [[-1 for row in range(len(grid[0]))] for col in range(len(grid))]
-    path = []
+    node = []
+    expand = [[-1 for col in range(len(grid[0]))] for row in range(len(grid))]
+    # path=[[' ' for col in range(len(grid[0]))] for row in range(len(grid))]
     open_set.append(init)
     g_values.append(0)
     expand_num = 0
@@ -49,18 +50,16 @@ def search(grid, init, goal, cost):
         expand[min_value_loc[0]][min_value_loc[1]] = expand_num
         expand_num += 1
         if min_value_loc == goal:
-            path = [min_value, min_value_loc[0], min_value_loc[1]]
+            node = [min_value, min_value_loc[0], min_value_loc[1]]
             break
         else:
             # 从open集与g_values中移除掉，并将其放到close集中去
             open_set.remove(min_value_loc)
             g_values.remove(min_value)
             close_set.append(min_value_loc)
-            # 生成当前loc移动之后可能的所有位置
-            maybe_loc = []
             for d in delta:
-                maybe_loc.append([min_value_loc[0] + d[0], min_value_loc[1] + d[1]])
-            for loc in maybe_loc:
+                # 生成loc
+                loc = [min_value_loc[0] + d[0], min_value_loc[1] + d[1]]
                 # 判断是否是有效的loc
                 if 0 <= loc[0] <= len(grid) - 1 and 0 <= loc[1] <= len(grid[0]) - 1:
                     # 判断是否已经在open、close集中并且不是障碍物
@@ -68,10 +67,11 @@ def search(grid, init, goal, cost):
                         # 将有效loc添加进open集与g_values中（g_values记得+cost）
                         open_set.append(loc)
                         g_values.append(min_value + cost)
-    print(expand)
-    if len(path) == 0:
+    for e in expand:
+        print(e)
+    if len(node) == 0:
         return 'fail'
     else:
-        return path
+        return node
 
 print(search(grid, init, goal, cost))
