@@ -146,7 +146,8 @@ class matrix:
 def kalman_filter(x, P):
     for n in range(len(measurements)):
         # measurement update
-        y = matrix([[measurements[n]]]) - H * x
+        Z = matrix([[measurements[n]]])
+        y = Z.transpose() - H * x
         S = H * P * H.transpose() + R
         K = P * H.transpose() * S.inverse()
         x = x + K * y
@@ -154,11 +155,12 @@ def kalman_filter(x, P):
         # prediction
         x = F * x + u
         P = F * P * F.transpose()
+
     return x, P
 
 
 ############################################
-### use the code below to test your filter!
+# use the code below to test your filter!
 ############################################
 
 measurements = [1, 2, 3]
