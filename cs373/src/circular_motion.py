@@ -94,7 +94,37 @@ class robot:
 
     def move(self, motion):  # Do not change the name of this function
 
-        # ADD CODE HERE
+        steering = motion[0]
+        distance = motion[1]
+        if abs(steering) > max_steering_angle:
+            raise (ValueError, 'Exceeding max steering angle')
+        if distance < 0:
+            raise (ValueError, 'Robot cant move backwards')
+
+        # set particle
+        result = robot(length=self.length)
+        result.set(self.x, self.y, self.orientation)
+        result.set_noise(self.bearing_noise, self.steering_noise, self.distance_noise)
+
+        # applying noise
+        steering2 = random.gauss(steering, self.steering_noise)
+        distance2 = random.gauss(distance, self.distance_noise)
+
+        beta = distance2 / result.length * tan(steering2)
+
+        if abs(beta) < 0.001:
+            result.x += distance2 * cos(result.orientation)
+            result.y += distance2 * sin(result.orientation)
+            result.orientation = (result.orientation + beta) % (2 * pi)
+        else:
+            r = distance2 / beta
+            cx = result.x - sin(result.orientation) * r
+            cy = result.y + cos(result.orientation) * r
+            result.x = cx + sin(result.orientation + beta) * r
+            result.y = cy - cos(result.orientation + beta) * r
+            result.orientation = (result.orientation + beta) % (2 * pi)
+
+
 
         return result  # make sure your move function returns an instance
         # of the robot class with the correct coordinates.
@@ -114,6 +144,40 @@ class robot:
 #       Robot:     [x=39.034 y=7.1270 orient=0.2886]
 #
 ##
+length = 20.
+bearing_noise = 0.0
+steering_noise = 0.0
+distance_noise = 0.0
+#
+myrobot = robot(length)
+myrobot.set(0.0, 0.0, 0.0)
+myrobot.set_noise(bearing_noise, steering_noise, distance_noise)
+#
+motions = [[0.0, 10.0], [pi / 6.0, 10], [0.0, 20.0]]
+#
+T = len(motions)
+#
+print('Robot:    ', myrobot)
+for t in range(T):
+    myrobot = myrobot.move(motions[t])
+    print('Robot:    ', myrobot)
+##
+##
+
+# 2) The following code should print:
+#      Robot:     [x=0.0 y=0.0 orient=0.0]
+#      Robot:     [x=9.9828 y=0.5063 orient=0.1013]
+#      Robot:     [x=19.863 y=2.0201 orient=0.2027]
+#      Robot:     [x=29.539 y=4.5259 orient=0.3040]
+#      Robot:     [x=38.913 y=7.9979 orient=0.4054]
+#      Robot:     [x=47.887 y=12.400 orient=0.5067]
+#      Robot:     [x=56.369 y=17.688 orient=0.6081]
+#      Robot:     [x=64.273 y=23.807 orient=0.7094]
+#      Robot:     [x=71.517 y=30.695 orient=0.8108]
+#      Robot:     [x=78.027 y=38.280 orient=0.9121]
+#      Robot:     [x=83.736 y=46.485 orient=1.0135]
+##
+##
 # length = 20.
 # bearing_noise  = 0.0
 # steering_noise = 0.0
@@ -123,7 +187,7 @@ class robot:
 # myrobot.set(0.0, 0.0, 0.0)
 # myrobot.set_noise(bearing_noise, steering_noise, distance_noise)
 ##
-# motions = [[0.0, 10.0], [pi / 6.0, 10], [0.0, 20.0]]
+# motions = [[0.2, 10.] for row in range(10)]
 ##
 # T = len(motions)
 ##
@@ -131,48 +195,3 @@ class robot:
 # for t in range(T):
 #    myrobot = myrobot.move(motions[t])
 #    print ('Robot:    ', myrobot)
-##
-##
-
-# IMPORTANT: You may uncomment the test cases below to test your code.
-# But when you submit this code, your test cases MUST be commented
-# out. Our testing program provides its own code for testing your
-# move function with randomized motion data.
-
-
-## 2) The following code should print:
-##      Robot:     [x=0.0 y=0.0 orient=0.0]
-##      Robot:     [x=9.9828 y=0.5063 orient=0.1013]
-##      Robot:     [x=19.863 y=2.0201 orient=0.2027]
-##      Robot:     [x=29.539 y=4.5259 orient=0.3040]
-##      Robot:     [x=38.913 y=7.9979 orient=0.4054]
-##      Robot:     [x=47.887 y=12.400 orient=0.5067]
-##      Robot:     [x=56.369 y=17.688 orient=0.6081]
-##      Robot:     [x=64.273 y=23.807 orient=0.7094]
-##      Robot:     [x=71.517 y=30.695 orient=0.8108]
-##      Robot:     [x=78.027 y=38.280 orient=0.9121]
-##      Robot:     [x=83.736 y=46.485 orient=1.0135]
-##
-##
-##length = 20.
-##bearing_noise  = 0.0
-##steering_noise = 0.0
-##distance_noise = 0.0
-##
-##myrobot = robot(length)
-##myrobot.set(0.0, 0.0, 0.0)
-##myrobot.set_noise(bearing_noise, steering_noise, distance_noise)
-##
-##motions = [[0.2, 10.] for row in range(10)]
-##
-##T = len(motions)
-##
-##print 'Robot:    ', myrobot
-##for t in range(T):
-##    myrobot = myrobot.move(motions[t])
-##    print 'Robot:    ', myrobot
-
-## IMPORTANT: You may uncomment the test cases below to test your code.
-## But when you submit this code, your test cases MUST be commented
-## out. Our testing program provides its own code for testing your
-## move function with randomized motion data.
