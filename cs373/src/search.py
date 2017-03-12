@@ -38,6 +38,7 @@ def search(grid, init, goal, cost):
     g_values = []
     node = []
     expand = [[-1 for col in range(len(grid[0]))] for row in range(len(grid))]
+    # path没画，因为我的search方法与课程中的不同，感觉没法跟课程中一样画path
     # path=[[' ' for col in range(len(grid[0]))] for row in range(len(grid))]
     open_set.append(init)
     g_values.append(0)
