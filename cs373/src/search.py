@@ -52,13 +52,12 @@ def search(grid, init, goal, cost):
             g_values.remove(min_value)
             close_set.append(min_value_loc)
             # 生成当前loc移动之后可能的所有位置
-            maybe_loc = [[min_value_loc[0] + delta[0][0], min_value_loc[1] + delta[0][1]],
-                         [min_value_loc[0] + delta[1][0], min_value_loc[1] + delta[1][1]],
-                         [min_value_loc[0] + delta[2][0], min_value_loc[1] + delta[2][1]],
-                         [min_value_loc[0] + delta[3][0], min_value_loc[1] + delta[3][1]]]
+            maybe_loc = []
+            for d in delta:
+                maybe_loc.append([min_value_loc[0] + d[0], min_value_loc[1] + d[1]])
             # 判断是否是有效的loc以及是否已经在close集中
             for loc in maybe_loc:
-                if loc[0] >= 0 and loc[0] <= len(grid) - 1 and loc[1] >= 0 and loc[1] <= len(grid[0]) - 1:
+                if 0 <= loc[0] <= len(grid) - 1 and 0 <= loc[1] <= len(grid[0]) - 1:
                     if grid[loc[0]][loc[1]] != 1 and loc not in close_set:
                         # 将有效loc添加进open集与g_values中（g_values记得+cost）
                         open_set.append(loc)
