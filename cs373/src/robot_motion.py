@@ -124,8 +124,6 @@ class robot:
             result.y = cy - cos(result.orientation + beta) * r
             result.orientation = (result.orientation + beta) % (2 * pi)
 
-
-
         return result  # make sure your move function returns an instance
         # of the robot class with the correct coordinates.
 
