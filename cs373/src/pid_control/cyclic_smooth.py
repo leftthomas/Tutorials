@@ -190,5 +190,5 @@ answer2 = [[1.2222234770374059, 0.4444422843711052],
            [0.44444210978390364, 1.2222211690821811],
            [0.8888882042812255, 0.8888870211766268]]
 
-# solution_check(smooth(testpath1), answer1)
+solution_check(smooth(testpath1), answer1)
 # solution_check(smooth(testpath2), answer2)
