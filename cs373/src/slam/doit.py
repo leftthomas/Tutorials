@@ -404,13 +404,25 @@ def doit(initial_pos, move1, move2, Z0, Z1, Z2):
     Xi += matrix([[0],
                   [-Z1],
                   [0], [Z1]])
+    # Omega += matrix([[0, 0, 0, 0],
+    #                  [0, 0, 0, 0],
+    #                  [0, 0, 1, -1],
+    #                  [0, 0, -1, 1]])
+    # Xi += matrix([[0],
+    #               [0],
+    #               [-Z2], [Z2]])
+
+    # Modify the previous code to adjust for a highly
+    # confident last measurement. Do this by adding a
+    # factor of 5 into your Omega and Xi matrices
+    # as described in the video.
     Omega += matrix([[0, 0, 0, 0],
                      [0, 0, 0, 0],
-                     [0, 0, 1, -1],
-                     [0, 0, -1, 1]])
+                     [0, 0, 5, -5],
+                     [0, 0, -5, 5]])
     Xi += matrix([[0],
                   [0],
-                  [-Z2], [Z2]])
+                  [-5 * Z2], [5 * Z2]])
     Omega.show('Omega: ')
     Xi.show('Xi:    ')
     mu = Omega.inverse() * Xi
@@ -420,3 +432,4 @@ def doit(initial_pos, move1, move2, Z0, Z1, Z2):
 
 
 doit(-3, 5, 3, 10, 5, 2)
+
