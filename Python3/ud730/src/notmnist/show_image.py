@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-from notmnist.extract_pickle_data import maybe_extract
-from notmnist.extract_pickle_data import maybe_pickle
+from Python3.ud730.src.notmnist.extract_pickle_data import maybe_extract
+from Python3.ud730.src.notmnist.extract_pickle_data import maybe_pickle
 
 # Problem 1
 # Let's take a peek at some of the data to make sure it looks sensible.

@@ -3,8 +3,8 @@ A simple example for Reinforcement Learning using table lookup Sarsa(lambda) met
 
 """
 
-from RL import Env
-from RL import Tools
+from PyTorch.RL import Env
+from PyTorch.RL import Tools
 
 LAMBDA = 0.9  # lambda factor
 ALPHA = 0.1  # learning rate

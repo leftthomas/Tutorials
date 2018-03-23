@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 from sklearn import ensemble
 from sklearn import neighbors
 
-from classification_visualization import prettyPicture
-from prepare_terrain_data import makeTerrainData
+from Python3.ud120.src.classification_visualization import prettyPicture
+from Python3.ud120.src.prepare_terrain_data import makeTerrainData
+
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
 # the training data (features_train, labels_train) have both "fast" and "slow"

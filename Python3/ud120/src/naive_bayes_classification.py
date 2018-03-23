@@ -9,7 +9,7 @@ import time
 
 from sklearn.naive_bayes import GaussianNB
 
-from email_preprocess import preprocess
+from Python3.ud120.src.email_preprocess import preprocess
 
 # features_train and features_test are the features for the training
 # and testing datasets, respectively

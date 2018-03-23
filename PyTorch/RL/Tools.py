@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from RL import Env
+from PyTorch.RL import Env
 
 # greedy police
 EPSILON = 0.9

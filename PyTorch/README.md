@@ -1,4 +1,4 @@
-# PyTorchLearn
+# PyTorch Learn
 Learn PyTorch
 
 ## Requirements

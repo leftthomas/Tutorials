@@ -1,6 +1,6 @@
-import fresh_tomatoes
+from Python3.ud036.src import fresh_tomatoes
 
-import media
+from Python3.ud036.src import media
 
 # 视频链接必须是YouTube的，因为fresh_tomatoes代码里面的设计是只针对YouTube的
 toy_story = media.Movie("玩具总动员", "A story of a boy and his toys that come to life",

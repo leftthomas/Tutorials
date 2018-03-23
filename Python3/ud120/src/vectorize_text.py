@@ -3,7 +3,7 @@ import pickle
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-import parse_out_email_text
+from Python3.ud120.src import parse_out_email_text
 
 """
     Starter code to process the emails from Sara and Chris to extract

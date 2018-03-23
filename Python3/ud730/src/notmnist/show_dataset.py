@@ -4,8 +4,8 @@ import pickle
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
-from notmnist.extract_pickle_data import maybe_extract
-from notmnist.extract_pickle_data import maybe_pickle
+from Python3.ud730.src.notmnist.extract_pickle_data import maybe_extract
+from Python3.ud730.src.notmnist.extract_pickle_data import maybe_pickle
 
 # Problem 3
 # Another check: we expect the data to be balanced across classes. Verify that.

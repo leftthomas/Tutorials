@@ -17,7 +17,7 @@ DOWNLOAD_MNIST = True  # 如果你已经下载好了mnist数据就写上 False
 
 # Mnist 手写数字
 train_data = dsets.MNIST(
-    root='./mnist/',  # 保存或者提取位置
+    root='mnist/',  # 保存或者提取位置
     train=True,  # this is training data
     transform=transforms.ToTensor(),  # 转换 PIL.Image or numpy.ndarray
     # 成 torch.FloatTensor (C x H x W), 训练的时候 normalize 成 [0.0, 1.0] 区间
@@ -27,7 +27,7 @@ train_data = dsets.MNIST(
 # 批训练 50samples, 1 channel, 28x28 (50, 1, 28, 28)
 train_loader = Data.DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=True)
 
-test_data = dsets.MNIST(root='./mnist/', train=False)
+test_data = dsets.MNIST(root='mnist/', train=False)
 # 为了节约时间, 我们测试时只测试前200个
 # shape from (200, 28, 28) to (200, 1, 28, 28), value in range(0,1)
 test_x = Variable(torch.unsqueeze(test_data.test_data, dim=1), volatile=True).type(torch.FloatTensor)[:200] / 255.

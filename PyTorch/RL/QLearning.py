@@ -2,8 +2,8 @@
 A simple example for Reinforcement Learning using table lookup Q-learning method.
 
 """
-from RL import Env
-from RL import Tools
+from PyTorch.RL import Env
+from PyTorch.RL import Tools
 
 ALPHA = 0.1  # learning rate
 GAMMA = 0.9  # discount factor
