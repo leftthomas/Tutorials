@@ -50,7 +50,7 @@ class CapsuleConv2d(nn.Module):
     ------------------------------------------------------------------------------------------------
     Examples::
 
-        >>> import capsulelayer
+        >>> from Kaggle.iceberg_classifier import capsulelayer
         >>> from torch.autograd import Variable
         >>> # With square kernels and equal stride
         >>> m = capsulelayer.CapsuleConv2d(16, 33, 3, 4, 3, stride=2)
@@ -145,7 +145,7 @@ class CapsuleLinear(nn.Module):
              (out_capsules, in_capsules, in_length, out_length)
 
      Examples::
-         >>> import capsulelayer
+         >>> from Kaggle.iceberg_classifier import capsulelayer
          >>> from torch.autograd import Variable
          >>> m = capsulelayer.CapsuleLinear(20, 30, 8, 16)
          >>> input = Variable(torch.randn(128, 20, 8))

@@ -1,7 +1,7 @@
 import torch.nn.functional as F
 from torch import nn
 
-from capsulelayer import CapsuleConv2d, CapsuleLinear
+from Kaggle.iceberg_classifier.capsulelayer import CapsuleConv2d, CapsuleLinear
 
 
 class CapsuleNet(nn.Module):

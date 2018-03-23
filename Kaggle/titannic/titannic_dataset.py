@@ -7,8 +7,8 @@ import torch.utils.data as data
 
 
 class CustomDataset(data.Dataset):
-    training_file = '../resources/train.csv'
-    test_file = '../resources/test.csv'
+    training_file = 'train.csv'
+    test_file = 'test.csv'
 
     def __init__(self, train=True):
         self.train = train  # training set or test set

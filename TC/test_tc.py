@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from pytest import approx
 from torch.autograd import Variable
 
-from kernels import abs, mv, matmul, maxpool
+from TC.kernels import abs, mv, matmul, maxpool
 
 test_abs_data = [(M, N) for M in [1, 5, 128] for N in [1, 7, 256]]
 test_mv_data = [(R, C) for R in [1, 2, 128] for C in [1, 5, 128, 256]]

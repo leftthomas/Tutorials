@@ -12,8 +12,8 @@ from torchnet.engine import Engine
 from torchnet.logger import VisdomPlotLogger
 from tqdm import tqdm
 
-import utils
-from model import CapsuleNet
+from Kaggle.iceberg_classifier import utils
+from Kaggle.iceberg_classifier.model import CapsuleNet
 
 
 def test():

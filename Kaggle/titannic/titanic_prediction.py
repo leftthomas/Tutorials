@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 
-from titannic_dataset import CustomDataset
+from Kaggle.titannic.titannic_dataset import CustomDataset
 
 # Hyper Parameters
 input_size = 5
@@ -77,4 +77,4 @@ for features, labels in test_loader:
     out = np.append(out, predicted.numpy())
 
 df = pd.DataFrame(np.array(out), dtype='int32', index=range(892, 892 + len(out)))
-df.to_csv('../resources/submission.csv', index_label='PassengerId', header=['Survived'])
+df.to_csv('submission.csv', index_label='PassengerId', header=['Survived'])

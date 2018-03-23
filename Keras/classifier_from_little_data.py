@@ -46,8 +46,8 @@ from keras.preprocessing.image import ImageDataGenerator
 # dimensions of our images.
 img_width, img_height = 150, 150
 
-train_data_dir = '../resources/data/train'
-validation_data_dir = '../resources/data/validation'
+train_data_dir = 'data/train'
+validation_data_dir = 'data/validation'
 nb_train_samples = 2000
 nb_validation_samples = 800
 epochs = 50
@@ -112,4 +112,4 @@ model.fit_generator(
     validation_data=validation_generator,
     validation_steps=nb_validation_samples // batch_size)
 
-model.save_weights('../resources/model_weights.h5')
+model.save_weights('model_weights.h5')

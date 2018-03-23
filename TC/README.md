@@ -1,4 +1,4 @@
-# TCLearn
+# TC Learn
 Learn Tensor Comprehensions (TC)
 
 ## Requirements

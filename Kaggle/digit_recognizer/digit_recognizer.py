@@ -15,8 +15,8 @@ learning_rate = 0.001
 
 
 class CustomDataset(data.Dataset):
-    training_file = '../resources/train.csv'
-    test_file = '../resources/test.csv'
+    training_file = 'train.csv'
+    test_file = 'test.csv'
 
     def __init__(self, train=True):
         self.train = train  # training set or test set
@@ -102,4 +102,4 @@ for images, labels in test_loader:
     out = np.append(out, labels.numpy())
 
 df = pd.DataFrame(np.array(out), dtype='int32', index=range(1, len(out) + 1))
-df.to_csv('../resources/submission.csv', index_label='ImageId', header=['Label'])
+df.to_csv('submission.csv', index_label='ImageId', header=['Label'])

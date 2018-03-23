@@ -1,2 +1,2 @@
-# HaskellLearn
+# Haskell Learn
 Learn Haskell

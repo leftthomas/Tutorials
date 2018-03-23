@@ -8,7 +8,7 @@ from torch.utils import data as datautils
 from torchvision import datasets
 from torchvision import transforms
 
-import left_net
+from Kaggle.cervical_cancer_screening import left_net
 
 # 防止报"OSError: image file is truncated (54 bytes not processed)"这个奇葩错误
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -32,7 +32,7 @@ transform = transforms.Compose([
 ])
 
 # Data Loading
-train_data = datasets.ImageFolder(root="../resources/train", transform=transform)
+train_data = datasets.ImageFolder(root="train", transform=transform)
 # print(train_data.imgs)
 
 train_loader = datautils.DataLoader(dataset=train_data, batch_size=batch_size, shuffle=True)
@@ -73,7 +73,7 @@ print('Finished Training')
 # Test Data Loading
 # 记得在test文件夹下新建一个Type_unknow的子文件夹，把测试图片全部移到这个文件夹下，
 # 不然的话无法通过datasets.ImageFolder方法载入数据集
-test_data = datasets.ImageFolder(root="../resources/test", transform=transform)
+test_data = datasets.ImageFolder(root="test", transform=transform)
 test_loader = datautils.DataLoader(dataset=test_data, batch_size=batch_size)
 # 用来保存所有image的name
 img_names = []
@@ -98,5 +98,5 @@ for data in test_loader:
         # print(output_probabilities)
 
 df = pd.DataFrame(output_probabilities, index=img_names, columns=['Type_1', 'Type_2', 'Type_3'])
-df.to_csv('../resources/submission.csv', index_label='image_name')
+df.to_csv('submission.csv', index_label='image_name')
 print('Finished Testing')

@@ -33,10 +33,10 @@ def extract_feature_from_data(file, is_train=True):
 
 
 # 数据准备
-training_file = '../resources/train.csv'
+training_file = 'train.csv'
 train_feature_data, train_label_data = extract_feature_from_data(training_file)
 # print(train_label_data)
-test_file = '../resources/test.csv'
+test_file = 'test.csv'
 test_feature_data, test_id_data = extract_feature_from_data(test_file, is_train=False)
 # print(test_id_data)
 
@@ -49,4 +49,4 @@ classifier.fit(train_feature_data, train_label_data)
 # print(classifier.predict(test_feature_data))
 predication = classifier.predict(test_feature_data)
 df = pd.DataFrame(predication, index=test_id_data)
-df.to_csv('../resources/submission.csv', index_label='Id', header=['SalePrice'])
+df.to_csv('submission.csv', index_label='Id', header=['SalePrice'])
