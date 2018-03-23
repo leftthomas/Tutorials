@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.left.dao.IMovie">
+
+	<resultMap type="com.left.bean.Movie" id="MovieResult">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="img_url" jdbcType="VARCHAR" property="img_url" />
+		<result column="description" jdbcType="LONGVARCHAR" property="description" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+		<result column="is_delete" jdbcType="INTEGER" property="is_delete" />
+	</resultMap>
+
+	<insert id="insertMovie" parameterType="com.left.bean.Movie"
+		useGeneratedKeys="true" keyColumn="id">
+		insert into movie(title,
+		img_url,description,create_time,update_time,is_delete) values(#{title},
+		#{img_url},#{description}, #{create_time},#{update_time}, #{is_delete})
+	</insert>
+
+	<update id="updateMovie" parameterType="com.left.bean.Movie">
+	<!-- 更新的数据不能是已经删除的数据 -->
+		update movie set
+		title=#{title}, img_url=#{img_url},description=#{description},update_time=#{update_time}
+		where id=#{id} and is_delete=0
+	</update>
+
+	<select id="queryMovieList" resultMap="MovieResult">
+	<!-- 去除逻辑上已经删除的数据 -->
+		SELECT * FROM movie where is_delete=0
+	</select>
+
+	<select id="findMovie" parameterType="String" resultMap="MovieResult">
+	<!-- 去除逻辑上已经删除的数据 -->
+		select *
+		from movie where title=#{title} and is_delete=0
+	</select>
+
+	<delete id="deleteMovie" parameterType="int">
+	<!-- 去除逻辑上已经删除的数据 -->
+		update movie set
+		is_delete=1 where id=#{id} and is_delete=0
+	</delete>
+
+</mapper>
