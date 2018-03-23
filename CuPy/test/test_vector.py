@@ -1,9 +1,11 @@
 from functools import partial
+
 import pytest
 import torch
-from torch.autograd import Variable, gradcheck
-from functions.vector_functions import VectorMul, VectorDot
 from pytest import approx
+from torch.autograd import Variable, gradcheck
+
+from CuPy.functions.vector_functions import VectorMul, VectorDot
 
 test_data = [length for length in [1, 2, 5, 10, 18, 32, 74, 128, 256, 512, 1024, 2048, 4096]]
 

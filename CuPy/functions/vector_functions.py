@@ -2,8 +2,9 @@ import torch
 from skcuda import cublas
 from torch.autograd import Function
 
-from kernels.vector_kernels import vector_mul_forward_kernel, vector_mul_backward_kernel, vector_dot_backward_kernel
-from utils import load_kernel, Dtype, Stream, num_threads, get_thread_blocks
+from CuPy.kernels.vector_kernels import vector_mul_forward_kernel, vector_mul_backward_kernel, \
+    vector_dot_backward_kernel
+from CuPy.utils import load_kernel, Dtype, Stream, num_threads, get_thread_blocks
 
 
 class VectorMul(Function):

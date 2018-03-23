@@ -5,7 +5,7 @@ import torch
 from pytest import approx
 from torch.autograd import Variable, gradcheck
 
-from functions.matrix_functions import MatrixMul
+from CuPy.functions.matrix_functions import MatrixMul
 
 mul_test_data = [(dim1, dim2, dim3) for dim1 in [2, 5, 32, 128] for dim2 in [2, 5, 32, 128] for dim3 in [2, 5, 32, 128]]
 
